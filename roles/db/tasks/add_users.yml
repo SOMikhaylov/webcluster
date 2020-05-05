@@ -1,0 +1,10 @@
+
+- name: add user test
+  mysql_user:
+    name: test
+    password: test
+    host: '%'
+    priv: '*.*:ALL'
+    state: present
+  when: 
+    - cluster_node_state  == "master"

@@ -1,0 +1,17 @@
+---
+- name: preconfigure | use python3
+  hosts: all
+  become: true
+
+  roles:
+    - preconfigure
+  tags: preconf 
+
+- name: install and configure db
+  hosts: db
+  become: true
+
+  roles:
+    - db
+  tags: db
+

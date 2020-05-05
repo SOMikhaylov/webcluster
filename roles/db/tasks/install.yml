@@ -1,0 +1,30 @@
+- name: install percona repository
+  yum: 
+    name: https://repo.percona.com/yum/percona-release-latest.noarch.rpm
+    state: present
+
+- name: disable default mysql module
+  copy:
+    content: |
+      [mysql]
+      name=mysql
+      profiles=
+      state=disabled
+      stream=
+    dest: /etc/dnf/modules.d/mysql.module
+  when: ansible_distribution_version|int >= 8
+
+- name: install percona cluster packages
+  yum:
+    name:  Percona-XtraDB-Cluster-57
+    state: present
+
+- name: pip install PyMySQL module
+  pip: 
+    name: PyMySQL
+    state: present
+    
+- name: install Percona Server SELinux policies
+  yum: 
+    name: http://repo.percona.com/centos/7/RPMS/x86_64/Percona-Server-selinux-56-5.6.42-rel84.2.el7.noarch.rpm
+    state: present
