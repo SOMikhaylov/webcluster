@@ -8,3 +8,23 @@
     state: present
   when: 
     - cluster_node_state  == "master"
+
+- name: add user monitor
+  mysql_user:
+    name: '{{ monitor_user }}'
+    password: '{{ monitor_password }}'
+    host: '%'
+    priv: '*.*:ALL'
+    state: present
+  when: 
+    - cluster_node_state  == "master"
+
+- name: add user proxysql
+  mysql_user:
+    name: '{{ proxysql_client_user }}'
+    password: '{{ proxysql_client_password }}'
+    host: '%'
+    priv: '*.*:ALL'
+    state: present
+  when: 
+    - cluster_node_state  == "master"
