@@ -14,11 +14,15 @@
     dest: /etc/dnf/modules.d/mysql.module
   when: ansible_distribution_version|int >= 8
 
-- name: install percona cluster packages
+- name: install packages
   yum:
     name:
-        - Percona-XtraDB-Cluster-client-57
-        - proxysql2
+      - nginx
+      - php-fpm
+      - Percona-XtraDB-Cluster-client-57
+      - proxysql2
+      - php-mysqlnd
+      - php-json
     state: present
 
 - name: pip install PyMySQL module

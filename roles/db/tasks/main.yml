@@ -9,3 +9,5 @@
 - include_tasks: bootstrap.yml
 
 - include_tasks: add_users.yml
+
+- include_tasks: wordpress.yml

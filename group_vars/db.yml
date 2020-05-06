@@ -8,5 +8,5 @@ xtradb_sst_password: Passw0rd
 monitor_user: monitor
 monitor_password: monitor
 
-proxysql_client_user: proxysql_user
-proxysql_client_password: passw0rd
+wordpress_user: wordpressuser
+wordpress_password: Password1! 

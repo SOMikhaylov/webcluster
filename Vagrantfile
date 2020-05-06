@@ -14,7 +14,7 @@ MACHINES = {
         :box_name => "centos/8",
         :ip_addr => '192.168.1.13',
   },
-  :dbproxy1 => {
+  :app1 => {
         :box_name => "centos/8",
         :ip_addr => '192.168.1.21',
   },
@@ -33,13 +33,13 @@ Vagrant.configure("2") do |config|
           box.vm.network "private_network", ip: boxconfig[:ip_addr]
 
           case boxname.to_s
-          when "dbproxy1"
+          when "app1"
             box.vm.provision "ansible" do |ansible|
                   ansible.playbook = "provision.yml"
                   ansible.limit = "all"
                   ansible.groups = {
                   "db" => ["db[1:3]"],
-                  "dbproxy" => ["dbproxy1"],
+                  "app" => ["app1"],
                   }
             end
           end

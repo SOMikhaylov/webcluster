@@ -1,0 +1,9 @@
+---
+# defaults file for roles/app
+
+nginx_listen_port: 8080
+
+wordpress_user: wordpressuser
+wordpress_password: Password1! 
+wordpress_host: 127.0.0.1
+wordpress_port: 6033

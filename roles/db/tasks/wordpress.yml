@@ -1,0 +1,16 @@
+- name: create db wordpress
+  mysql_db:
+    name: wordpress
+    state: present
+  when: 
+    - cluster_node_state  == "master"
+
+- name: create wordpress user
+  mysql_user:
+    name: '{{ wordpress_user }}'
+    password: '{{ wordpress_password }}'
+    priv: 'wordpress.*:ALL,GRANT'
+    host: '%'
+    state: present
+  when: 
+    - cluster_node_state  == "master"

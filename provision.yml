@@ -15,11 +15,11 @@
     - db
   tags: db
 
-- name: install and configure dbproxy
-  hosts: dbproxy
+- name: install and configure app
+  hosts: app
   become: true
 
   roles:
-    - dbproxy
-  tags: dbproxy
+    - app
+  tags: app
 
