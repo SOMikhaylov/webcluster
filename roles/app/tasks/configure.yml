@@ -50,11 +50,3 @@
     login_password: 'admin'
     hostname: 'db3'
     state: present
-
-- name: add user test 
-  proxysql_mysql_users:
-    login_user: 'admin'
-    login_password: 'admin'
-    username: 'test'
-    password: 'test'
-    state: present

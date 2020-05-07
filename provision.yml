@@ -23,3 +23,10 @@
     - app
   tags: app
 
+- name: install and configure lb
+  hosts: lb
+  become: true
+
+  roles:
+    - lb
+  tags: lb
