@@ -7,7 +7,7 @@
     - preconfigure
   tags: preconf 
 
-- name: install and configure db
+- name: install and configure db servers
   hosts: db
   become: true
 
@@ -15,7 +15,7 @@
     - db
   tags: db
 
-- name: install and configure app
+- name: install and configure app servers
   hosts: app
   become: true
 
@@ -23,10 +23,18 @@
     - app
   tags: app
 
-- name: install and configure lb
+- name: install and configure load balancers
   hosts: lb
   become: true
 
   roles:
     - lb
   tags: lb
+
+- name: install and configure log servers
+  hosts: log
+  become: true
+
+  roles:
+    - log
+  tags: log

@@ -8,10 +8,11 @@
     gpgkey: https://artifacts.elastic.co/GPG-KEY-elasticsearch
     enabled: yes
 
-- name: install packages
-  yum:
-    name: 
-        - keepalived
-        - haproxy
-        - filebeat
+- name: install elasticsearch package
+  yum: 
+    name:
+      - java-1.8.0-openjdk 
+      - elasticsearch
+      - kibana
+      - logstash
     state: present

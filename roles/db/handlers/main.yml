@@ -6,3 +6,9 @@
     name: mysql
     state: restarted
     enabled: yes
+
+- name: restart filebeat
+  systemd:
+    name: filebeat
+    state: restarted
+    enabled: yes

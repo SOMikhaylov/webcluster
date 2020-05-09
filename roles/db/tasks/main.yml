@@ -11,3 +11,5 @@
 - include_tasks: add_users.yml
 
 - include_tasks: wordpress.yml
+
+- include_tasks: filebeat.yml

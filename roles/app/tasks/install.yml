@@ -14,6 +14,15 @@
     dest: /etc/dnf/modules.d/mysql.module
   when: ansible_distribution_version|int >= 8
 
+- name: add elk repository
+  yum_repository:
+    name: elk
+    description: elk for 7.x packages
+    baseurl: https://artifacts.elastic.co/packages/7.x/yum
+    gpgcheck: yes
+    gpgkey: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+    enabled: yes
+
 - name: install packages
   yum:
     name:
@@ -23,6 +32,7 @@
       - proxysql2
       - php-mysqlnd
       - php-json
+      - filebeat
     state: present
 
 - name: pip install PyMySQL module

@@ -7,20 +7,14 @@
     state: restarted
     enabled: yes
 
-- name: reload nginx
-  systemd:
-    name: nginx
-    state: reloaded
-    enabled: yes
-
 - name: restart php-fpm
   systemd:
     name: php-fpm
     state: restarted
     enabled: yes
 
-- name: restart php-fpm
+- name: restart filebeat
   systemd:
-    name: php-fpm
-    state: reloaded
+    name: filebeat
+    state: restarted
     enabled: yes
