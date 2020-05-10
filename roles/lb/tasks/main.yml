@@ -7,3 +7,5 @@
 - include_tasks: configure.yml
 
 - include_tasks: filebeat.yml
+
+- include_tasks: firewalld.yml

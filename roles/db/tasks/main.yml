@@ -13,3 +13,7 @@
 - include_tasks: wordpress.yml
 
 - include_tasks: filebeat.yml
+
+- include_tasks: firewalld.yml
+
+- include_tasks: backup.yml

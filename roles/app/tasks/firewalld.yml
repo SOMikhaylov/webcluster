@@ -1,0 +1,19 @@
+- name: start firewalld
+  systemd:
+    name: firewalld
+    state: started
+    enabled: yes
+
+- name: firewalld add service http
+  firewalld:
+    service: http
+    permanent: yes
+    immediate: yes
+    state: enabled
+
+- name: firewalld open port 8080
+  firewalld:
+    port: 8080/tcp
+    permanent: yes
+    immediate: yes
+    state: enabled

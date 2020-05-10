@@ -31,6 +31,14 @@
     - lb
   tags: lb
 
+- name: install and configure backup server
+  hosts: backup
+  become: true
+
+  roles:
+    - backup
+  tags: backup
+
 - name: install and configure log servers
   hosts: log
   become: true

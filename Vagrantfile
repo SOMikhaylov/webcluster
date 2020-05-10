@@ -30,9 +30,13 @@ MACHINES = {
         :box_name => "centos/8",
         :ip_addr => '192.168.1.32',
   },
-  :log1 => {
+  :backup1 => {
         :box_name => "centos/8",
         :ip_addr => '192.168.1.41',
+  },
+  :log1 => {
+        :box_name => "centos/8",
+        :ip_addr => '192.168.1.51',
   },
 }
 
@@ -60,6 +64,7 @@ Vagrant.configure("2") do |config|
                   "db" => ["db[1:3]"],
                   "app" => ["app[1:2]"],
                   "lb" => ["lb[1:2]"],
+                  "backup" => ["backup1"],
                   "log" => ["log1"],
                   }
             end

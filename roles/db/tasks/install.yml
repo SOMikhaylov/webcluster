@@ -28,6 +28,8 @@
     name:  
       - Percona-XtraDB-Cluster-57
       - filebeat
+      - nfs-utils 
+      - nfs4-acl-tools
     state: present
 
 - name: pip install PyMySQL module
