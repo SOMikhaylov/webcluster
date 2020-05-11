@@ -4,4 +4,4 @@ interfaces:
 
 cluster_node_state: master
 
-logstash_host: 192.168.1.41
+logstash_host: log1

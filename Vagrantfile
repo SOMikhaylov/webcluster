@@ -22,6 +22,10 @@ MACHINES = {
         :box_name => "centos/8",
         :ip_addr => '192.168.1.22',
   },
+  :app3 => {
+        :box_name => "centos/8",
+        :ip_addr => '192.168.1.23',
+  },
   :lb1 => {
         :box_name => "centos/8",
         :ip_addr => '192.168.1.31',
@@ -52,7 +56,8 @@ Vagrant.configure("2") do |config|
 
           box.vm.network "private_network", ip: boxconfig[:ip_addr]
 
-          case boxname.to_s
+          case boxname.to_s        
+
           when "log1"
             box.vm.provider :virtualbox do |vb|
                   vb.customize ["modifyvm", :id, "--memory", "4096"]
@@ -62,7 +67,7 @@ Vagrant.configure("2") do |config|
                   ansible.limit = "all"
                   ansible.groups = {
                   "db" => ["db[1:3]"],
-                  "app" => ["app[1:2]"],
+                  "app" => ["app[1:3]"],
                   "lb" => ["lb[1:2]"],
                   "backup" => ["backup1"],
                   "log" => ["log1"],

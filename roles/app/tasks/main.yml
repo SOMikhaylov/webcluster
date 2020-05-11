@@ -6,6 +6,10 @@
 
 - include_tasks: configure.yml
 
+- include_tasks: proxysql.yml
+
+- include_tasks: glusterfs.yml
+
 - include_tasks: wordpress.yml
 
 - include_tasks: filebeat.yml

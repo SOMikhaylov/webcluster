@@ -6,5 +6,4 @@
     host: '%'
     priv: '*.*:ALL'
     state: present
-  when: 
-    - cluster_node_state  == "master"
+  run_once: true

@@ -18,3 +18,9 @@
     name: filebeat
     state: restarted
     enabled: yes
+
+- name: restart glusterfs 
+  systemd:
+    name: glusterd
+    state: restarted
+    enabled: yes

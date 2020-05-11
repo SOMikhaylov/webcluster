@@ -4,17 +4,13 @@
     state: started
     enabled: yes
     
-- name: firewalld open port 80
+- name: firewalld open ports
   firewalld:
-    port: 80/tcp
+    port: '{{ item }}'
     permanent: yes
     immediate: yes
     state: enabled
-
-- name: firewalld open port 443
-  firewalld:
-    port: 443/tcp
-    permanent: yes
-    immediate: yes
-    state: enabled
-
+  loop:
+    - 443/tcp
+    - 80/tcp
+    - 8080/tcp

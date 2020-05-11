@@ -1,6 +1,8 @@
-- name: install percona repository
+- name: install repositories
   yum: 
-    name: https://repo.percona.com/yum/percona-release-latest.noarch.rpm
+    name: 
+      - https://repo.percona.com/yum/percona-release-latest.noarch.rpm
+      - centos-release-gluster7
     state: present
 
 - name: disable default mysql module
@@ -26,6 +28,7 @@
 - name: install packages
   yum:
     name:
+      - unzip
       - nginx
       - php-fpm
       - Percona-XtraDB-Cluster-client-57
@@ -33,6 +36,8 @@
       - php-mysqlnd
       - php-json
       - filebeat
+      - glusterfs-server
+      - glusterfs-client
     state: present
 
 - name: pip install PyMySQL module

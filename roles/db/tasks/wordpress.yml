@@ -2,8 +2,7 @@
   mysql_db:
     name: wordpress
     state: present
-  when: 
-    - cluster_node_state  == "master"
+  run_once: true
 
 - name: create wordpress user
   mysql_user:
@@ -12,5 +11,4 @@
     priv: 'wordpress.*:ALL,GRANT'
     host: '%'
     state: present
-  when: 
-    - cluster_node_state  == "master"
+  run_once: true
